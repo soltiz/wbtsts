@@ -18,9 +18,24 @@ import org.jfree.data.time.TimeSeriesCollection;
 import org.jfree.data.xy.XYSeries;
 import org.jfree.data.xy.XYSeriesCollection;
 
+import javax.swing.JPanel;
+
+import java.awt.BorderLayout;
+
+import javax.swing.JSlider;
+
+import java.awt.event.InputMethodListener;
+import java.awt.event.InputMethodEvent;
+
+import javax.swing.JLabel;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
+
 public class GrapherTester {
 
 	private JFrame frame;
+	private FreqsGrapherPanel fgp;
+	private JLabel lblNewLabel;
 
 	/**
 	 * Launch the application.
@@ -48,45 +63,48 @@ public class GrapherTester {
 	/**
 	 * Initialize the contents of the frame.
 	 */
+	private void refreshData(Integer xOffset) {
+		fgp.updateData(xOffset);
+	
+	}
+
 	private void initialize() {
 		frame = new JFrame();
 		frame.setBounds(100, 100, 450, 300);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
+		fgp=new FreqsGrapherPanel();
+		frame.getContentPane().add(fgp);
 		
-			final XYSeries dataset1 = new XYSeries("cos");
-			final XYSeries dataset2 = new XYSeries("sin");
+		JPanel panel = new JPanel();
+		frame.getContentPane().add(panel, BorderLayout.NORTH);
+		
+		final JSlider offsetSlider = new JSlider();
+		offsetSlider.setMinimum(0);
+		offsetSlider.setMaximum(100);
 
-			for (int i = 0; i <= 2000; i++) {
-				dataset1.add(i,Math.cos(Math.PI*i/100)*800);
-				dataset2.add(i,Math.sin(Math.PI*i/100)*800);
+		panel.add(offsetSlider);
+		
+		lblNewLabel = new JLabel("Offset : ");
+		panel.add(lblNewLabel);
+		offsetSlider.addChangeListener(new ChangeListener() {
+			
+			@Override
+			public void stateChanged(ChangeEvent arg0) {
+				refreshData(offsetSlider.getValue());
+				lblNewLabel.setText("Offset : "+offsetSlider.getValue());
+				
 			}
-			
-			
-
-	        XYSeriesCollection dataset = new XYSeriesCollection();
-	        dataset.addSeries(dataset1);
-	        dataset.addSeries(dataset2);
-
-	        JFreeChart chart = ChartFactory.createXYLineChart(
-	                "Spectre",
-	                "frequence",
-	                "intensite",
-	                dataset, 
-	                PlotOrientation.VERTICAL,
-	                true,
-	                true,
-	                false
-	                );
-	        ChartPanel chartPanel = new ChartPanel(chart);
-
-
-	        
-			
-			
-			frame.getContentPane().add(chartPanel);
-
-
+		});
+		offsetSlider.addInputMethodListener(new InputMethodListener() {
+			public void caretPositionChanged(InputMethodEvent arg0) {
+				refreshData(offsetSlider.getValue());
+				lblNewLabel.setText("Offset : "+offsetSlider.getValue());
+			}
+			public void inputMethodTextChanged(InputMethodEvent arg0) {
+			}
+		});
+		
 			frame.pack();
 
 		frame.setVisible(true);
