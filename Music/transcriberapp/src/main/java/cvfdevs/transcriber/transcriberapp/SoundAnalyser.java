@@ -8,7 +8,7 @@ import javax.swing.JTextField;
  * Hello world!
  *
  */
-public class App 
+public class SoundAnalyser 
 {
 	
 	 private static void createAndShowGUI() {
