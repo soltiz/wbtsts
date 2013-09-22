@@ -1,4 +1,4 @@
-package com.thales.services.cvf.javafirst;
+package cvfdevs.transcriber.transcriberapp;
 
 import java.awt.Canvas;
 import java.awt.Color;

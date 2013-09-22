@@ -13,7 +13,7 @@ public class App
 	
 	 private static void createAndShowGUI() {
 	        //Create and set up the window.
-	        JFrame frame = new JFrame("HelloWorldSwing");
+	        JFrame frame = new AudioCapture();
 	        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 	        //Add the ubiquitous "Hello World" label.
@@ -28,6 +28,11 @@ public class App
 	        //Display the window.
 	        frame.pack();
 	        frame.setVisible(true);
+	        
+	        
+	        
+		  
+	
 	    }
 	
     public static void main( String[] args )

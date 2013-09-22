@@ -1,22 +1,11 @@
-package com.thales.services.cvf.javafirst;
+package cvfdevs.transcriber.transcriberapp;
 
 import java.awt.Container;
-
-import org.apache.commons.math3.complex.Complex;
-import org.apache.commons.math3.transform.DftNormalization;
-import org.apache.commons.math3.transform.FastFourierTransformer;
-import org.apache.commons.math3.transform.TransformType;
-
-import java.lang.Math;
-import java.awt.FlowLayout;
 import java.awt.GraphicsConfiguration;
 import java.awt.GraphicsDevice;
 import java.awt.GraphicsEnvironment;
-import java.awt.Rectangle;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -24,11 +13,8 @@ import java.io.FileOutputStream;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.io.PrintWriter;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Vector;
 
-import javax.print.attribute.standard.JobMessageFromOperator;
 import javax.sound.sampled.AudioFormat;
 import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
@@ -45,7 +31,6 @@ import javax.sound.sampled.Mixer;
 import javax.sound.sampled.Port;
 import javax.sound.sampled.SourceDataLine;
 import javax.sound.sampled.TargetDataLine;
-import javax.sound.sampled.spi.AudioFileWriter;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JFileChooser;
@@ -59,6 +44,11 @@ import javax.swing.JTextField;
 import javax.swing.ListSelectionModel;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
+
+import org.apache.commons.math3.complex.Complex;
+import org.apache.commons.math3.transform.DftNormalization;
+import org.apache.commons.math3.transform.FastFourierTransformer;
+import org.apache.commons.math3.transform.TransformType;
 
 public class AudioCapture extends JFrame {
 	 /**
@@ -199,7 +189,6 @@ public class AudioCapture extends JFrame {
 		inputMixerList.setEnabled(true);
 		inputMixerList.addListSelectionListener(new ListSelectionListener(){
 
-			@Override
 			public void valueChanged(ListSelectionEvent arg0) {
 				updateAvailableCaptureModes();
 			}});
@@ -211,7 +200,7 @@ public class AudioCapture extends JFrame {
 		outputMixerList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		outputMixerList.setEnabled(true);
 		outputMixerList.addListSelectionListener(new ListSelectionListener(){
-			@Override
+			
 			public void valueChanged(ListSelectionEvent arg0) {
 				updateAvailableReplayModes();
 			}});
@@ -333,7 +322,6 @@ public class AudioCapture extends JFrame {
 	    
 	    fileSelectButton.addActionListener(new ActionListener() {
 
-			@Override
 			public void actionPerformed(ActionEvent arg0) {
 			    JFileChooser fileChooser = new JFileChooser();
 			    
