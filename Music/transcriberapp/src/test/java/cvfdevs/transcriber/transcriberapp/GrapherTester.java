@@ -30,12 +30,14 @@ import java.awt.event.InputMethodEvent;
 import javax.swing.JLabel;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
+import javax.swing.JSpinner;
 
 public class GrapherTester {
 
 	private JFrame frame;
 	private FreqsGrapherPanel fgp;
 	private JLabel lblNewLabel;
+	private JSpinner spinner;
 
 	/**
 	 * Launch the application.
@@ -63,8 +65,8 @@ public class GrapherTester {
 	/**
 	 * Initialize the contents of the frame.
 	 */
-	private void refreshData(Integer xOffset) {
-		fgp.updateData(xOffset);
+	private void refreshData(Integer xOffset, Integer xGrain) {
+		fgp.updateData(xOffset,xGrain);
 	
 	}
 
@@ -87,23 +89,21 @@ public class GrapherTester {
 		
 		lblNewLabel = new JLabel("Offset : ");
 		panel.add(lblNewLabel);
+		
+		spinner = new JSpinner();
+		spinner.setValue(10);
+	
+		panel.add(spinner);
 		offsetSlider.addChangeListener(new ChangeListener() {
 			
 			@Override
 			public void stateChanged(ChangeEvent arg0) {
-				refreshData(offsetSlider.getValue());
+				refreshData(offsetSlider.getValue(), (Integer) spinner.getValue());
 				lblNewLabel.setText("Offset : "+offsetSlider.getValue());
 				
 			}
 		});
-		offsetSlider.addInputMethodListener(new InputMethodListener() {
-			public void caretPositionChanged(InputMethodEvent arg0) {
-				refreshData(offsetSlider.getValue());
-				lblNewLabel.setText("Offset : "+offsetSlider.getValue());
-			}
-			public void inputMethodTextChanged(InputMethodEvent arg0) {
-			}
-		});
+		
 		
 			frame.pack();
 

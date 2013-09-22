@@ -7,6 +7,7 @@ import org.jfree.chart.ChartPanel;
 import org.jfree.chart.JFreeChart;
 import org.jfree.chart.event.ChartChangeListener;
 import org.jfree.chart.plot.PlotOrientation;
+import org.jfree.data.xy.XYDataItem;
 import org.jfree.data.xy.XYSeries;
 import org.jfree.data.xy.XYSeriesCollection;
 
@@ -52,12 +53,13 @@ public class FreqsGrapherPanel extends JPanel {
 
 	}
 
-	public void updateData(Integer xOffset) {
+	public void updateData(Integer xOffset,Integer xGrain) {
+		
 		dataset1.clear();
 		dataset2.clear();
 		
 
-		for (int i = 0; i <= 2000; i++) {
+		for (int i = 0; i <= 2000; i+=xGrain) {
 			dataset1.add(i,Math.cos(Math.PI*(i-xOffset)/100)*800);
 			dataset2.add(i,Math.sin(Math.PI*(i-xOffset)/100)*800);
 		}
