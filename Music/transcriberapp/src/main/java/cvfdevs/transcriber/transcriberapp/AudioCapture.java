@@ -148,7 +148,9 @@ public class AudioCapture extends JFrame {
 		  tracerCanvas.addSample(maxit/600);
 		  if (maxit/600 > threshold.getValue()) {
 			  warn();
+			  if (maxfreq!=0) {
 			  mainFreqLabel.setText("Freq=" + (44000/maxfreq) + " Hz");
+			  }
 		  }
 		  freqsCanvas.setData(freqs);
 		  freqsCanvas.repaint();
