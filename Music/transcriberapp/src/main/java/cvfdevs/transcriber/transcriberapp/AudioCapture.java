@@ -10,6 +10,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.io.PrintWriter;
@@ -239,7 +240,6 @@ public class AudioCapture extends JFrame {
 		GraphicsDevice[] gs = ge.getScreenDevices(); 
 		GraphicsDevice gd = gs[0]; 
 		GraphicsConfiguration gc =  gd.getDefaultConfiguration(); 
-		JFrame f = new JFrame(gc); 
 		tracerCanvas = new TracerCanvas(gc); 
 		masterPane.add(tracerCanvas); 
 		
@@ -447,7 +447,6 @@ public class AudioCapture extends JFrame {
 	    //true,false
 	    
 	    
-	    //TODO : retrieve actual formats 
 	    //Vector<AudioFormat> formats = getSupportedFormats(SourceDataLine.class);
 	    
 	    return new AudioFormat(
@@ -502,6 +501,13 @@ public class AudioCapture extends JFrame {
 	      
 	      System.exit(0);
 	    }//end catch
+	    try {
+			outputStream.close();
+			outputStream=null;
+		} catch (IOException e) {
+			e.printStackTrace();
+			outputStream=null;
+		}
 	  }//end run
 	private void incrementCapturedBytes(int cnt) {
 		capturedBytes+=cnt;

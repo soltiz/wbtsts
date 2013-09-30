@@ -1,36 +1,15 @@
 package cvfdevs.transcriber.transcriberapp;
 
+import java.awt.BorderLayout;
 import java.awt.EventQueue;
-import java.lang.Math;
-import java.awt.GraphicsConfiguration;
-import java.awt.GraphicsDevice;
-import java.awt.GraphicsEnvironment;
 
 import javax.swing.JFrame;
-
-import org.jfree.chart.ChartFactory;
-import org.jfree.chart.ChartPanel;
-import org.jfree.chart.JFreeChart;
-import org.jfree.chart.plot.PlotOrientation;
-import org.jfree.data.category.DefaultCategoryDataset;
-import org.jfree.data.time.TimeSeries;
-import org.jfree.data.time.TimeSeriesCollection;
-import org.jfree.data.xy.XYSeries;
-import org.jfree.data.xy.XYSeriesCollection;
-
-import javax.swing.JPanel;
-
-import java.awt.BorderLayout;
-
-import javax.swing.JSlider;
-
-import java.awt.event.InputMethodListener;
-import java.awt.event.InputMethodEvent;
-
 import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JSlider;
+import javax.swing.JSpinner;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
-import javax.swing.JSpinner;
 
 public class GrapherTester {
 
@@ -96,7 +75,6 @@ public class GrapherTester {
 		panel.add(spinner);
 		offsetSlider.addChangeListener(new ChangeListener() {
 			
-			@Override
 			public void stateChanged(ChangeEvent arg0) {
 				refreshData(offsetSlider.getValue(), (Integer) spinner.getValue());
 				lblNewLabel.setText("Offset : "+offsetSlider.getValue());
