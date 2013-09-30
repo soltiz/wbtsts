@@ -52,6 +52,7 @@ public class TranscriberApp {
 		mainPanel.add(toolBar);
 		
 		JComboBox<String> soundFile = new JComboBox<String>();
+		//TODO : renseiner la liste des fichiers sons
 		toolBar.add(soundFile);
 		
 		JButton play = new JButton("");
