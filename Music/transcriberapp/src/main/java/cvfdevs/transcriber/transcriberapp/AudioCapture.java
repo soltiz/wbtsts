@@ -437,7 +437,7 @@ public class AudioCapture extends JFrame {
 		  
 	    float sampleRate = 8000.0F;
 	    //8000,11025,16000,22050,44100
-	    int sampleSizeInBits = 16;
+	    int sampleSizeInBits = 8;
 	    //8,16
 	    int channels = 1;
 	    //1,2
