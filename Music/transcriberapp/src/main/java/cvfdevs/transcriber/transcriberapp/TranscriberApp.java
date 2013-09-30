@@ -1,14 +1,21 @@
 package cvfdevs.transcriber.transcriberapp;
 
+import java.awt.Dimension;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JToolBar;
+
 import java.awt.BorderLayout;
+import java.io.File;
+
+import javax.swing.ComboBoxModel;
 import javax.swing.JComboBox;
 import javax.swing.JButton;
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
+import javax.swing.event.ListDataListener;
+import javax.swing.BoxLayout;
 
 public class TranscriberApp {
 
@@ -42,18 +49,24 @@ public class TranscriberApp {
 	 */
 	private void initialize() {
 		frame = new JFrame();
-		frame.setBounds(100, 100, 450, 300);
+		frame.setBounds(100, 100, 850, 500);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.getContentPane().setLayout(new BoxLayout(frame.getContentPane(), BoxLayout.PAGE_AXIS));
 		
 		JPanel mainPanel = new JPanel();
-		frame.getContentPane().add(mainPanel, BorderLayout.SOUTH);
+		frame.getContentPane().add(mainPanel);
+		mainPanel.setLayout(new BoxLayout(mainPanel, BoxLayout.Y_AXIS));
 		
 		JToolBar toolBar = new JToolBar();
 		mainPanel.add(toolBar);
 		
-		JComboBox<String> soundFile = new JComboBox<String>();
-		//TODO : renseiner la liste des fichiers sons
-		toolBar.add(soundFile);
+		File[] soundFiles = SoundFilesHelper.getSoundFiles();
+		JComboBox<File> soundFileSelector = new JComboBox<File>();
+		for (File soundfile:soundFiles) {
+			soundFileSelector.addItem(soundfile);
+		}
+	
+		toolBar.add(soundFileSelector);
 		
 		JButton play = new JButton("");
 		play.setIcon(new ImageIcon(TranscriberApp.class.getResource("/icons/arrow-right-3.png")));

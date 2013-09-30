@@ -1,5 +1,6 @@
 package cvfdevs.transcriber.transcriberapp;
 
+import javax.swing.BoxLayout;
 import javax.swing.JPanel;
 
 import org.jfree.chart.ChartFactory;
@@ -38,15 +39,16 @@ public class TimeFrequencyPanel extends JPanel {
                 "frequency",
                 dataset, 
                 PlotOrientation.VERTICAL,
-                true,
+                false,
                 true,
                 false
                 );
         
         chartPanel= new ChartPanel(chart);
-        
+        chartPanel.setLayout(new BoxLayout(chartPanel, BoxLayout.Y_AXIS));
+       
         this.add(chartPanel);
-        
+       // this.setSize(50,50);
 
 	}
 
