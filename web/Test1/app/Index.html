@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" ng-app>
+<html lang="en" ng-app="hybridDemoApp">
 <head>
 <meta charset="utf-8">
 <title>My HTML File</title>
@@ -7,43 +7,34 @@
 <link rel="stylesheet" href="css/bootstrap.css">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script src="lib/angular/angular.js"></script>
+<script src="controllers.js"></script>
 </head>
-<body>
+<body  ng-controller="vmListCtrl">
 	<div class="container">
 		<div class="row">
 			<P>
-				current demo phase : <strong>{{ 'Ready for demo' }}</strong>
+				current demo phase : <strong>{{ phase}}</strong>
 			</p>
 		</div>
 		<div class="row">
 			<div class="table-responsive">
-				<table class="table table-bordered table-striped">
+				<table class="table table-bordered table-striped" >
 					<tr>
-						<th>Network name</th>
 						<th>VM name</th>
+						<th>Network name</th>
 						<th>Status</th>
 					</tr>
-					<tr>
-						<td>Clt1-CW-priv1
-						<td>apache1</td>
-						<td>ACTIVE</td>
-					</tr>
-					<tr>
-						<td>Clt1-CW-priv1
-						<td>alfresco1</td>
-						<td>ACTIVE</td>
-					</tr>
-					<tr>
-						<td>Clt1-TS-priv2
-						<td>mysql1</td>
-						<td>ACTIVE</td>
+					<tr ng-repeat="vm in vms">
+						<td>{{vm.name}}</td>
+						<td>{{vm.network}}</td>
+						<td>{{vm.status}}</td>
 					</tr>
 				</table>
 			</div>
 		</div>
 		<div class="row">
 			<div class="col-xs-4">
-				<strong>Step : #{{1}} </strong>
+				<strong>Step : #{{step}} </strong>
 				</div>
 				<div class="col-xs-4">
 					<button name="nextPhase" class="btn btn-primary">Next
