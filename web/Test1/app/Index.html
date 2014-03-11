@@ -1,18 +1,57 @@
 <!doctype html>
 <html lang="en" ng-app>
 <head>
-  <meta charset="utf-8">
-  <title>My HTML File</title>
-  <link rel="stylesheet" href="css/app.css">
-  <link rel="stylesheet" href="css/bootstrap.css">
-  <script src="lib/angular/angular.js"></script>
+<meta charset="utf-8">
+<title>My HTML File</title>
+<link rel="stylesheet" href="css/app.css">
+<link rel="stylesheet" href="css/bootstrap.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="lib/angular/angular.js"></script>
 </head>
 <body>
+	<div class="container">
+		<div class="row">
+			<P>
+				current demo phase : <strong>{{ 'Ready for demo' }}</strong>
+			</p>
+		</div>
+		<div class="row">
+			<div class="table-responsive">
+				<table class="table table-bordered table-striped">
+					<tr>
+						<th>Network name</th>
+						<th>VM name</th>
+						<th>Status</th>
+					</tr>
+					<tr>
+						<td>Clt1-CW-priv1
+						<td>apache1</td>
+						<td>ACTIVE</td>
+					</tr>
+					<tr>
+						<td>Clt1-CW-priv1
+						<td>alfresco1</td>
+						<td>ACTIVE</td>
+					</tr>
+					<tr>
+						<td>Clt1-TS-priv2
+						<td>mysql1</td>
+						<td>ACTIVE</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-xs-4">
+				<strong>Step : #{{1}} </strong>
+				</div>
+				<div class="col-xs-4">
+					<button name="nextPhase" class="btn btn-primary">Next
+						phase, please !</button>
+				</div>
 
-  <p>Nothing here {{'yet' + '!'}}</p>
-  <P> current demo phase : {{ 'Ready for demo' }} </p>
-  <p> Step : #{{1}}<p>
-  <button name="nextPhase">Next Phase, please !</button>
- 
+				<p>
+			</div>
+		</div>
 </body>
 </html>
