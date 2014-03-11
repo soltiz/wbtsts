@@ -291,7 +291,7 @@ public class AudioCapture extends JFrame {
 	                                 ActionEvent e){
 	          //Play back all of the data that was
 	          // saved during capture.
-	          playAudio();
+	          SoundFilesHelper.playSoundFile(soundFile);
 	        }//end actionPerformed
 	      }//end ActionListener
 	    );//end addActionListener()
@@ -385,79 +385,8 @@ public class AudioCapture extends JFrame {
 
 	  //This method plays back the audio data that
 	  // has been saved in the ByteArrayOutputStream
-	  private void playAudio() {
-	    try{
-	      //Get everything set up for playback.
-	      //Get the previously-saved data into a byte
-	      // array object.
-	    InputStream inputStream=new FileInputStream(soundFile);
-	    
-	    Long dataLength=soundFile.length();
-	    	
-	      System.out.println("Replay Array size = "+ dataLength);
-	      //Get an input stream on the byte array
-	      // containing the data
-	      AudioFormat audioFormat = getOutputAudioFormat();
-	      audioInputStream = new AudioInputStream(
-	    		  inputStream,
-	                    audioFormat,
-	                    dataLength/audioFormat.
-	                                 getFrameSize());
-	      DataLine.Info dataLineInfo =
-	                            new DataLine.Info(
-	                            SourceDataLine.class,
-	                            audioFormat);
-	      sourceDataLine = (SourceDataLine)
-	               AudioSystem.getLine(dataLineInfo);
-	      sourceDataLine.open(audioFormat);
-	      sourceDataLine.start();
-
-	      //Create a thread to play back the data and
-	      // start it  running.  It will run until
-	      // all the data has been played back.
-	      Thread playThread = new PlayThread();
-	      playThread.start();
-	    } catch (Exception e) {
-	      System.out.println(e);
-	      e.printStackTrace(System.out);
-	      
-	      System.exit(0);
-	    }//end catch
-	  }//end playAudio
-
-	  //This method creates and returns an
-	  // AudioFormat object for a given set of format
-	  // parameters.  If these parameters don't work
-	  // well for you, try some of the other
-	  // allowable parameter values, which are shown
-	  // in comments following the declartions.
-	  private AudioFormat getAudioFormat(){
-		  
-		  
-		  
-	    float sampleRate = 8000.0F;
-	    //8000,11025,16000,22050,44100
-	    int sampleSizeInBits = 32;
-	    //8,16
-	    int channels = 1;
-	    //1,2
-	    boolean signed = true;
-	    //true,false
-	    boolean bigEndian = false;
-	    //true,false
-	    
-	    
-	    //Vector<AudioFormat> formats = getSupportedFormats(SourceDataLine.class);
-	    
-	    return new AudioFormat(
-	                      sampleRate,
-	                      sampleSizeInBits,
-	                      channels,
-	                      signed,
-	                      bigEndian);
-	  }//end getAudioFormat
-	//=============================================//
-
+	
+	
 	//Inner class to capture data from microphone
 	class CaptureThread extends Thread{
 	  //An arbitrary-size temporary holding buffer
@@ -518,36 +447,7 @@ public class AudioCapture extends JFrame {
 	//===================================//
 	//Inner class to play back the data
 	// that was saved.
-	class PlayThread extends Thread{
-	  byte tempBuffer[] = new byte[10000];
-
-	  public void run(){
-	    try{
-	      int cnt;
-	      //Keep looping until the input read method
-	      // returns -1 for empty stream.
-	      while((cnt = audioInputStream.read(
-	                      tempBuffer, 0,
-	                      tempBuffer.length)) != -1){
-	        if(cnt > 0){
-	        	System.out.println("Read "+cnt+" bytes");
-	          //Write data to the internal buffer of
-	          // the data line where it will be
-	          // delivered to the speaker.
-	          sourceDataLine.write(tempBuffer,0,cnt);
-	        }//end if
-	      }//end while
-	      //Block and wait for internal buffer of the
-	      // data line to empty.
-	      sourceDataLine.drain();
-	      sourceDataLine.close();
-	    }catch (Exception e) {
-	      System.out.println(e);
-	      e.printStackTrace(System.out);
-	      System.exit(0);
-	    }//end catch
-	  }//end run
-	}//end inner class PlayThread
+	
 	//=============================================//
 	class ListMixers {
 	    PrintWriter out;

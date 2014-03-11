@@ -8,6 +8,8 @@ import org.jfree.chart.ChartPanel;
 import org.jfree.chart.JFreeChart;
 import org.jfree.chart.plot.PlotOrientation;
 import org.jfree.data.xy.DefaultXYZDataset;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class TimeFrequencyPanel extends JPanel {
 	/**
@@ -16,7 +18,8 @@ public class TimeFrequencyPanel extends JPanel {
 	private static final long serialVersionUID = 3262273213097555412L;
 	private JFreeChart chart; 
 	private ChartPanel chartPanel ;
-	
+	private static final Logger log = LoggerFactory.getLogger(TimeFrequencyPanel.class);
+
 	public TimeFrequencyPanel() {
 		
 	
