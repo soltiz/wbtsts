@@ -1,11 +1,18 @@
 <!DOCTYPE html>
-<html lang="fr" ng-app="firstApp">
+<html ng-app>
 <script src="FirstScript.js"></script>
 <head>
+<script type="text/javascript"
+		src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.14/angular.js"></script>
+
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
 <body>
-Hello world ! Value = <script>print(18);</script>
+	Write some text in textbox:
+	<input type="text" ng-model="sometext" />
+
+	<h1>Hello {{ sometext }}</h1>
+Hello world ! Value = <script>18;<script>
 </body>
 </html>
