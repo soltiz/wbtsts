@@ -1,10 +1,10 @@
 <?xml version="1.0"?>
 <testsuites>
-  <testsuite name="Chrome 33.0.1750 (Linux)" package="" timestamp="2014-03-12T18:07:04" id="0" hostname="bnkeezdev" tests="1" errors="0" failures="0" time="0.039">
+  <testsuite name="Chrome 33.0.1750 (Linux)" package="" timestamp="2014-03-12T18:36:53" id="0" hostname="bnkeezdev" tests="1" errors="0" failures="0" time="0.06">
     <properties>
       <property name="browser.fullName" value="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/33.0.1750.149 Safari/537.36"/>
     </properties>
-    <testcase name="should return 4 VMs" time="0.039" classname="Chrome 33.0.1750 (Linux).vmListCtrl"/>
+    <testcase name="should return 3 vms" time="0.06" classname="Chrome 33.0.1750 (Linux).Test of controllers -  VmListCtrl"/>
     <system-out><![CDATA[
 ]]></system-out>
     <system-err/>

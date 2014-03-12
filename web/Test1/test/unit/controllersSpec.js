@@ -1,15 +1,20 @@
 'use strict';
+describe('Test of controllers - ', function() {
+	describe('VmListCtrl', function() {
+		var scope = {};
 
-describe('vmListCtrl', function(){
-	var scope={};
-	beforeEach(module('hybridDemoApp')); 
-	
-    it('should return 4 VMs', inject(function($controller) {
-  
-         $controller('VmListCtrl', { $scope: scope });
-  
-      
-      expect(scope.vms.length).toBe(3);
+		beforeEach(function() {
+			module('hybridDemoApp');
+			inject(function($controller) {
 
-    }));
-  });
+				$controller('VmListCtrl', {
+					$scope : scope
+				});
+			});
+		});
+
+		it('should return 3 vms', function() {
+			expect(scope.vms.length).toBe(3);
+		});
+	});
+});
