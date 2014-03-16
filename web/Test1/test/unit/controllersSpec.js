@@ -7,7 +7,7 @@ describe('Test of controllers - ', function() {
 			module('hybridDemoApp');
 			inject(function($controller) {
 
-				$controller('VmListCtrl', {
+				$controller('vmListCtrl', {
 					$scope : scope
 				});
 			});
@@ -16,5 +16,14 @@ describe('Test of controllers - ', function() {
 		it('should return 3 vms', function() {
 			expect(scope.vms.length).toBe(3);
 		});
+		
+		it('should return json', function() {
+			expect(scope.vms).toEqual([
+			 	             {'name':'apache1', 'network':'Clt1-CW-priv1', 'status':'ACTIVE'},
+				             {'name':'alfresco1', 'network':'Clt1-CW-priv1', 'status':'ACTIVE'},
+				             {'name':'mysql1', 'network':'Clt1-TS-priv2', 'status':'ACTIVE'}]);
+		});
+			
 	});
+
 });
