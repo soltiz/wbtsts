@@ -11,6 +11,6 @@
 }
 ,
 {"name":"gamma",
-"network":"Clt1-CW-priv1",
+"network":"Clt1-CW-priv1", 
 "status":"ACTIVE"}
 ]

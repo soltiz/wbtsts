@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en" ng-app="hybridDemoApp">
+<head>
+<meta charset="utf-8">
+<title>My HTML File</title>
+<link rel="stylesheet" href="css/app.css">
+<link rel="stylesheet" href="css/bootstrap.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="lib/angular/angular.js"></script>
+<script src="js/controllers.js"></script>
+</head>
+<body  ng-controller="vmListCtrl">
+	<div class="container">
+		<div class="row">
+			<P>
+				current demo phase : <strong>{{ phase}}</strong>
+			</p>
+		</div>
+		<div class="row">
+			<div class="table-responsive">
+				<table class="table table-bordered table-striped" >
+					<tr>
+						<th>VM name</th>
+						<th>Network name</th>
+						<th>Status</th>
+					</tr>
+					<tr ng-repeat="vm in vms">
+						<td>{{vm.name}}</td>
+						<td>{{vm.network}}</td>
+						<td>{{vm.status}}</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-xs-4">
+				<strong>Step : #{{step}} </strong>
+				</div>
+				<div class="col-xs-4">
+					<button name="nextPhase" class="btn btn-primary">Next
+						phase, please !</button>
+				</div>
+
+				<p>
+			</div>
+		</div>
+</body>
+</html>
