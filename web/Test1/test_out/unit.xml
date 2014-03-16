@@ -1,11 +1,12 @@
 <?xml version="1.0"?>
 <testsuites>
-  <testsuite name="Chrome 33.0.1750 (Linux)" package="" timestamp="2014-03-16T17:49:24" id="0" hostname="bnkeezdev" tests="2" errors="0" failures="0" time="0.067">
+  <testsuite name="Chrome 33.0.1750 (Linux)" package="" timestamp="2014-03-16T18:11:18" id="0" hostname="bnkeezdev" tests="3" errors="0" failures="0" time="0.044">
     <properties>
       <property name="browser.fullName" value="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/33.0.1750.149 Safari/537.36"/>
     </properties>
-    <testcase name="should return 3 vms" time="0.057" classname="Chrome 33.0.1750 (Linux).Test of controllers -  VmListCtrl"/>
-    <testcase name="should return json" time="0.01" classname="Chrome 33.0.1750 (Linux).Test of controllers -  VmListCtrl"/>
+    <testcase name="should return 3 vms" time="0.028" classname="Chrome 33.0.1750 (Linux).Test of controllers -  VmListCtrl"/>
+    <testcase name="should return json" time="0.007" classname="Chrome 33.0.1750 (Linux).Test of controllers -  VmListCtrl"/>
+    <testcase name="should return jsonified body" time="0.009" classname="Chrome 33.0.1750 (Linux).Test of EslPod controller -  eslpodctrl"/>
     <system-out><![CDATA[
 ]]></system-out>
     <system-err/>
