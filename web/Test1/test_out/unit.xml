@@ -1,12 +1,22 @@
 <?xml version="1.0"?>
 <testsuites>
-  <testsuite name="Chrome 33.0.1750 (Linux)" package="" timestamp="2014-03-16T18:11:18" id="0" hostname="bnkeezdev" tests="3" errors="0" failures="0" time="0.044">
+  <testsuite name="Chrome 33.0.1750 (Linux)" package="" timestamp="2014-03-18T20:27:54" id="0" hostname="bnkeezdev" tests="8" errors="0" failures="1" time="0.869">
     <properties>
       <property name="browser.fullName" value="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/33.0.1750.149 Safari/537.36"/>
     </properties>
-    <testcase name="should return 3 vms" time="0.028" classname="Chrome 33.0.1750 (Linux).Test of controllers -  VmListCtrl"/>
-    <testcase name="should return json" time="0.007" classname="Chrome 33.0.1750 (Linux).Test of controllers -  VmListCtrl"/>
-    <testcase name="should return jsonified body" time="0.009" classname="Chrome 33.0.1750 (Linux).Test of EslPod controller -  eslpodctrl"/>
+    <testcase name="should return 3 vms" time="0.3" classname="Chrome 33.0.1750 (Linux).Test of controllers -  VmListCtrl"/>
+    <testcase name="should return json" time="0.036" classname="Chrome 33.0.1750 (Linux).Test of controllers -  VmListCtrl"/>
+    <testcase name="should learn html" time="0.205" classname="Chrome 33.0.1750 (Linux).Test of EslPod controller -  eslpodctrl">
+      <failure type="">Expected null to equal &apos;nothing&apos;.
+Error: Expected null to equal &apos;nothing&apos;.
+    at null.&lt;anonymous&gt; (/home/bnkeez/workspaces/web/Test1/test/unit/eslpodctrlSpec.js:21:17)
+</failure>
+    </testcase>
+    <testcase name="should return jsonified body" time="0.05" classname="Chrome 33.0.1750 (Linux).Test of EslPod controller -  eslpodctrl"/>
+    <testcase name="should be able to decode the test web page" time="0.238" classname="Chrome 33.0.1750 (Linux).Test of EslPod controller -  eslpodctrl"/>
+    <testcase name="should return the correct number of podcasts" time="0.032" classname="Chrome 33.0.1750 (Linux).Test of EslPod controller -  eslpodctrl"/>
+    <testcase name="array first element is 42" time="0.003" classname="Chrome 33.0.1750 (Linux).Test of EslPod controller -  sampletests"/>
+    <testcase name="map attribue toto value is demon" time="0.005" classname="Chrome 33.0.1750 (Linux).Test of EslPod controller -  sampletests"/>
     <system-out><![CDATA[
 ]]></system-out>
     <system-err/>

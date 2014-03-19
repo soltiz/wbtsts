@@ -6,9 +6,13 @@ module.exports = function(config){
       'app/lib/angular/angular.js',
       'app/lib/angular/angular-*.js',
       'test/lib/angular/angular-mocks.js',
+      'node_modules/jquery/dist/jquery.js',
+      'node_modules/jasmine-jquery/lib/jasmine-jquery.js',
       'app/js/**/*.js',
       'app/lib/xml2json.js',
-      'test/unit/**/*.js'
+      'test/unit/**/*.js',
+     {pattern: 'test/unit/mock/*.html', watched: true, served: true, included: false}
+ 
     ],
 
     exclude : [
