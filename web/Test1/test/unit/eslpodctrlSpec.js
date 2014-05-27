@@ -17,8 +17,8 @@ describe('Test of EslPod controller - ', function() {
 			jasmine.getFixtures().fixturesPath='base/test/unit/mock';
 			var fixture = readFixtures('out.html');
 			var x2js = new X2JS();
-			var json = x2js.xml_str2json( fixture );
-			expect(json).toEqual('nothing');
+//			var json = x2js.xml_str2json( fixture );
+			expect(fixture).toEqual('nothing');
 
 		})
 		
