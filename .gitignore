@@ -8,3 +8,6 @@ target
 *.swp
 .settings
 bin
+**/.project
+**/test_out
+**/npm-debug.log
