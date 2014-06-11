@@ -11,3 +11,4 @@ bin
 **/.project
 **/test_out
 **/npm-debug.log
+**/nohup.out
