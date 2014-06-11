@@ -12,5 +12,6 @@ hybridDemoApp.controller('vmListCtrl',function ($scope,$http) {
 		$scope.vms=data;
 	});
 	$scope.step=1;
+	$scope.doNextPhase = function(event) { $scope.step=$scope.step+1; };
 	$scope.phase="Ready to start";
 });
