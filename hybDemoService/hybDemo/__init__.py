@@ -1,5 +1,5 @@
 from flask import Flask
-from flask import jsonify
+from flask import jsonify, abort, make_response
 from flask.ext.restful import Api,Resource,fields, marshal, marshal_with
 from flask.ext.restful import reqparse
 
@@ -23,11 +23,11 @@ class UserAPI (Resource):
     
     def currentRepresentation(self):
         self.next_state=api.url_for(self)+"?requestedState="+"after_"+self.current_state
-        return ( self)
+        return ( marshal(self,scenario_fields))
     
     def __init__(self):
         self.reqparse = reqparse.RequestParser()
-        self.reqparse.add_argument('requestedState', type = str)
+        self.reqparse.add_argument('requested_state', type = str)
         super(UserAPI, self).__init__()
     
     @marshal_with(scenario_fields)    
@@ -35,10 +35,14 @@ class UserAPI (Resource):
         self.reqparse.parse_args()
         return (self.currentRepresentation() )
     
-    @marshal_with(scenario_fields)    
     def put (self):
         args = self.reqparse.parse_args()
-        self.current_state=args.requestedState
+        print (args.requested_state)
+        if args.requested_state==None:
+            return make_response(jsonify( { 'error': "Request argument 'requested_state' is mandatory for PUT method" } ), 400)
+            pass
+#            return(make_response(jsonify({}))
+        self.current_state=args.requested_state
         return ( self.currentRepresentation()  )
 
 
