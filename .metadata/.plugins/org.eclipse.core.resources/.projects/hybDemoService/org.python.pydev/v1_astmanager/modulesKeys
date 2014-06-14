@@ -1,0 +1,5 @@
+MODULES_MANAGER_V2
+hybDemo.HybStateMachine|/home/cedric/dev/hyb/wbtsts/hybDemoService/src/hybDemo/HybStateMachine.py
+hybDemo.HybStateMachineStatus|/home/cedric/dev/hyb/wbtsts/hybDemoService/src/hybDemo/HybStateMachineStatus.py
+hybDemo.HybVmsAPI|/home/cedric/dev/hyb/wbtsts/hybDemoService/src/hybDemo/HybVmsAPI.py
+hybDemo.__init__|/home/cedric/dev/hyb/wbtsts/hybDemoService/src/hybDemo/__init__.py

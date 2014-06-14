@@ -1,15 +1,8 @@
 *.pyc
-EFNG
-.metadata
 target
 *.class
-.classpath
-.project
 .git
 *.swp
-.settings
-bin
-**/.project
 **/test_out
 **/npm-debug.log
 **/nohup.out
