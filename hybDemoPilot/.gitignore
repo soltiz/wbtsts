@@ -1,5 +1,0 @@
-app/lib
-bower_components
-test_out
-node_modules
-**/*.pyc
